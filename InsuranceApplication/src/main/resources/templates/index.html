@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/style.css" th:href="@{/css/style.css}">
+  <title>O aplikaci</title>
+</head>
+<body>
+  <header class="pt-2 fixed-top">
+    <div class="container-flex">
+      <p class="pageTitle px-2">Evidence pojištění</p>
+      <nav role="navigation">
+        <ul class="d-flex flex-column flex-sm-row justify-content-end py-1">
+          <li class="nav-item"><a href="/home" class="link-customized link-customized-active px-3">O aplikaci</a></li>
+          <li class="nav-item"><a href="/insured-users" class="link-customized px-3">Správa pojištěnců</a></li>
+          <li class="nav-item"><a href="/new-user" class="link-customized px-3 ">Registrovat nového pojištěnce</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <article class="pt-5 my-5">
+    <div class="container contentContainer">
+      <div class="row my-5 pb-5">
+        <div class="col-10 offset-1">
+          <div class="card card-customized">
+            <div class="card-header">Aplikace: Evidence pojištění (plná verze)</div>
+            <div class="card-body">
+              Aplikace je vytvořená podle minimálních požadavků poskytnutých v zadání: <br/><br/>
+              <span style="font-weight: bold;">Minimální požadavky ke splnění</span> <br/>
+              <ul>
+                <li>Aplikace obsahuje kompletní správu (CRUD) pojištěných (např. "Jan Novák") a jejich pojištění (např. "pojištění bytu"):
+                  <ol>
+                    <li>Vytvoření pojištěného</li>
+                    <li>Vytvoření pojištění</li>
+                    <li>Zobrazení detailu pojištěného včetně jeho pojištění</li>
+                    <li>Zobrazení detailu pojištění</li>
+                    <li>Zobrazení seznamu pojištěných</li>
+                    <li>Odstranění pojištěného včetně všech jeho pojištění</li>
+                    <li>Odstranění pojištění</li>
+                    <li>Editace pojištěného</li>
+                    <li>Editace pojištění pojištěného</li>
+                  </ol>
+                </li>
+                <li>Dané entity jsou uloženy v SQL databázi</li>
+                <li>Aplikace je naprogramována podle dobrých praktik a je plně responzivní</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center"><a href="/insured-users" class="button-customized-blue p-3">Přejít na správu pojištěnců</a></div>
+      </div>
+    </div>
+  </article>
+
+  <footer class="text-center bottom pt-5">
+    <small>Závěrečný projekt - rekvalifikace BASIC</small>
+  </footer>
+
+</body>
+</html>

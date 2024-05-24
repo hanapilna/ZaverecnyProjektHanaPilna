@@ -1,0 +1,141 @@
+  /* color scheme
+  #E0E0E2;
+  #81D2C7;
+  #042A2B;
+  #60463B;
+  #DB5A42; */
+
+body{
+  background-color: #E0E0E2;
+}
+
+header {
+  height: 6rem;
+  background-color: #042A2B;
+  box-shadow: 0px 0px 20px #042A2B;
+}
+
+.pageTitle{
+  color: #E0E0E2;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  text-shadow: 0px 0px 5px #81D2C7;
+}
+
+nav{
+  background-color:#81D2C7;
+}
+
+ul{
+  list-style-type: none;
+}
+
+footer{
+  background-color: #042A2B;
+  color: #81D2C7;
+  height: 30rem;
+  width: 100%;
+  box-shadow: 0px 0px 20px #042A2B;
+}
+
+.link-customized{
+  color: #042A2B;
+}
+
+.link-customized-active{
+  color: #042A2B;
+  font-weight: bold;
+}
+
+.link-customized:hover{
+  text-decoration: none;
+  color: #DB5A42;
+  font-weight: bold;
+}
+
+.card-customized{
+  color: #042A2B;
+  background-color: #E0E0E2;
+  box-shadow: 0px 0px 25px #60463B;
+}
+
+.card-customized > .card-header{
+  color: #E0E0E2;
+  background-color: #60463B;
+  font-weight: bold;
+}
+
+.button-customized{
+  color: #E0E0E2;
+  background-color: #DB5A42;
+  border-radius: 20px;
+  border: 2px solid;
+  border-color: #DB5A42;
+}
+
+.button-customized:hover{
+  color:#042A2B;
+  text-decoration: none;
+  background-color: #E0E0E2;
+}
+
+.button-customized-blue{
+  border: 2px solid;
+  border-color: #81D2C7;
+  background-color: #81D2C7;
+  color: #042A2B;
+  border-radius: 15px;
+}
+
+.button-customized-blue:hover{
+  background-color: #E0E0E2;
+  color:#042A2B;
+  border-color: #81D2C7;
+  text-decoration: none;
+}
+
+.button-header-customized-blue{
+  border: 2px solid;
+  border-color: #81D2C7;
+  background-color: #81D2C7;
+  color: #042A2B;
+  border-radius: 15px;
+}
+
+.button-header-customized{
+  color: #E0E0E2;
+  background-color: #DB5A42;
+  border-radius: 20px;
+  border: 2px solid;
+  border-color: #DB5A42;
+}
+
+.button-header-customized-blue:hover{
+  background-color: #60463B;
+  font-weight: bold;
+  color:#E0E0E2;
+  border-color: #81D2C7;
+  text-decoration: none;
+}
+
+.button-header-customized:hover{
+  color:#E0E0E2;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #60463B;
+}
+
+.contentContainer{
+  margin-top: 5rem;
+}
+
+.formTitle{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.userContainer{
+  margin-top: 12rem;
+  margin-bottom: 20rem;
+}
+

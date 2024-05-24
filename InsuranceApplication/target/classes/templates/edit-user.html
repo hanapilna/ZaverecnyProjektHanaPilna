@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css" th:href="@{/css/style.css}">
+    <title>Uprav pojištěnce</title>
+</head>
+<body>
+<header class="pt-2 fixed-top">
+    <div class="container-flex">
+        <p class="pageTitle px-2">Evidence pojištění</p>
+        <nav role="navigation">
+            <ul class="d-flex flex-column flex-sm-row justify-content-end py-1">
+                <li class="nav-item"><a href="/home" class="link-customized px-3">O aplikaci</a></li>
+                <li class="nav-item"><a href="/insured-users" class="link-customized px-3">Správa pojištěnců</a></li>
+                <li class="nav-item"><a href="/new-user" class="link-customized px-3 ">Registrovat nového pojištěnce</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<article>
+    <div class="container userContainer">
+        <div class="row">
+            <div class="col-12 col-sm-8 offset-sm-2">
+                <div class="text-center mb-4 formTitle">Uprav pojištěnce</div>
+                <form method="post" th:action="@{/edit-user/save}" th:object="${user}">
+                    <div>
+                        <label for="id">Id pojištěnce</label>
+                        <input type="number" id="id" class="form-control" th:field="*{id}" readonly="readonly"/>
+                    </div>
+                    <div>
+                        <label for="name">Jméno</label>
+                        <input type="text" id="name" class="form-control" th:field="*{name}" required/>
+                    </div>
+                    <div>
+                        <label for="surname">Příjmení</label>
+                        <input type="text" id="surname" class="form-control" th:field="*{surname}" required/>
+                    </div>
+                    <div>
+                        <label for="birthDate">Datum narození</label>
+                        <input type="date" id="birthDate" class="form-control" th:field="*{birthDate}" required/>
+                    </div>
+                    <div>
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" class="form-control" th:field="*{email}" required/>
+                    </div>
+                    <div class="mt-2">
+                        <label for="phone">Telefoní číslo</label>
+                        <input type="text" id="phone" class="form-control" th:field="*{phone}" required/>
+                    </div>
+                    <div class="text-center mt-2" >Adresa</div>
+                    <div>
+                        <label for="street">Ulice</label>
+                        <input type="text" id="street" class="form-control" th:field="*{street}" required/>
+                    </div>
+                    <div>
+                        <label for="houseNumber">Číslo popisné</label>
+                        <input type="text" id="houseNumber" class="form-control" th:field="*{houseNumber}" required/>
+                    </div>
+                    <div>
+                        <label for="city">Město</label>
+                        <input type="text" id="city" class="form-control" th:field="*{city}" required/>
+                    </div>
+                    <div>
+                        <label for="zipCode">PSČ</label>
+                        <input type="text" id="zipCode" class="form-control" th:field="*{zipCode}" required/>
+                    </div>
+                    <div>
+                        <label for="country">Země</label>
+                        <input type="text" id="country" class="form-control" th:field="*{country}" required/>
+                    </div>
+                    <div class="my-3">
+                        <input type="submit" value="Ulož změny"  class="p-2 button-customized-blue">
+                    </div>
+                </form>
+                <div><a href="/insured-users" class="button-customized px-2">Zrušit změny</a></div>
+            </div>
+        </div>
+
+    </div>
+</article>
+
+<footer class="text-center pt-5 bottom">
+    <small>Závěrečný projekt - rekvalifikace BASIC</small>
+</footer>
+</body>
+</html>

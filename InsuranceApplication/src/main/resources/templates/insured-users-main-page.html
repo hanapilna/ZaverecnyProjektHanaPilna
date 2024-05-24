@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/style.css" th:href="@{/css/style.css}">
+  <title>Správa pojištěnců</title>
+</head>
+<body>
+  <header class="pt-2 fixed-top">
+    <div class="container-flex">
+      <p class="pageTitle px-2">Evidence pojištění</p>
+      <nav role="navigation">
+        <ul class="d-flex flex-column flex-sm-row justify-content-end py-1">
+          <li class="nav-item"><a href="/home" class="link-customized px-3">O aplikaci</a></li>
+          <li class="nav-item"><a href="/insured-users" class="link-customized link-customized-active px-3">Správa pojištěnců</a></li>
+          <li class="nav-item"><a href="/new-user" class="link-customized px-3 ">Registrovat nového pojištěnce</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <article>
+    <div class="container userContainer p-2">
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="card card-customized mb-5">
+            <div class="card-header">Pojištěnci <a href="/new-user" class="button-header-customized-blue mx-5 px-2">Registrovat nového pojištěnce</a>
+            </div>
+            <div class="card-body">
+              <div th:if="${listOfUsers.isEmpty()}">V databázi nejsou vedení žádní pojištěnci</div>
+              <table th:if="${!listOfUsers.isEmpty()}" class="table table-responsive">
+                <thead>
+                  <tr>
+                    <th>ID pojištěnce</th>
+                    <th>Jméno</th>
+                    <th>Příjmení</th>
+                    <th>Datum narození</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="user : ${listOfUsers}">
+                    <td th:text="${user.id}">Id</td>
+                    <td th:text="${user.name}">Name</td>
+                    <td th:text="${user.surname}">Surname</td>
+                    <td th:text="${user.birthDate}">BirtDate</td>
+                    <td>
+                      <a th:href="@{'/insured-users/edit/' + ${user.id}}" class="button-customized-blue mx-2 px-2">Upravit</a>
+                    </td>
+                    <td>
+                      <a th:href="@{'/insured-users/' + ${user.id}}" class="button-customized-blue mx-2 px-2">Detail pojištěnce</a>
+                    </td>
+                    <td>
+                      <a th:href="@{'/delete/' + ${user.id}}" class="button-customized mx-2 px-2" onclick="return confirm('Opravdu si přejete smazat pojištěnce a jeho pojištění?');">Smazat</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <footer class="text-center bottom pt-5">
+    <small>Závěrečný projekt - rekvalifikace BASIC</small>
+  </footer>
+</body>
+</html>

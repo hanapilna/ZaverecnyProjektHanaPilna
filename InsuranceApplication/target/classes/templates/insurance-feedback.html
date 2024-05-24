@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css" th:href="@{/css/style.css}">
+    <title>Zpráva o pojištění</title>
+</head>
+<body>
+    <header class="pt-2 fixed-top">
+        <div class="container-flex">
+            <p class="pageTitle px-2">Evidence pojištění</p>
+            <nav role="navigation">
+                <ul class="d-flex flex-column flex-sm-row justify-content-end py-1">
+                    <li class="nav-item"><a href="/home" class="link-customized px-3">O aplikaci</a></li>
+                    <li class="nav-item"><a href="/insured-users" class="link-customized px-3">Správa pojištěnců</a></li>
+                    <li class="nav-item"><a href="/new-user" class="link-customized px-3 ">Registrovat nového pojištěnce</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <article>
+        <div class="container userContainer">
+            <div class="row">
+                <div class="col-12 col-sm-8 offset-sm-2">
+                    <div class="card card-customized mb-4">
+                        <div class="card-header">Zpráva o uložení změn pojištění<span th:if="${successMessage==null}" class="mx-5" style="color: #DB5A42; font-weight: bold;">DOŠLO K CHYBĚ</span></div>
+                        <div class="card-body">
+                            <div th:if="${errorMessage}">
+                                <p th:text="${errorMessage}" style="color: #DB5A42; font-weight: bold;"></p>
+                            </div>
+                            <div th:if="${errorMessageAboutNumbers}">
+                                <p th:text="${errorMessageAboutNumbers}" style="color: #DB5A42; font-weight: bold;"></p>
+                                <p>Žádný z násladujících vstupů nesmí obsahovat čísla: druh pojištění, objekt pojištění</p>
+                            </div>
+                            <div th:if="${errorMessageAboutInsuranceDates}">
+                                <p th:text="${errorMessageAboutInsuranceDates}" style="color: #DB5A42; font-weight: bold;"></p>
+                                <p>Datum "Od" nesmí být po datu "Do". / Pojištění nelze založit s datem v minulosti.</p>
+                            </div>
+                            <div th:if="${errorMessageAboutInsuranceValue}">
+                                <p th:text="${errorMessageAboutInsuranceValue}" style="color: #DB5A42; font-weight: bold;"></p>
+                            </div>
+                            <div th:if="${successMessage==null}" style="color: #60463B; font-weight: bold;">
+                                <p>Vraťte se prosím na formulář a opravte chyby, nebo přejděte na stránku pojištěnce a začněte znovu</p>
+                            </div>
+                            <p th:if="${successMessage}" th:text="${successMessage}" style="color: #60463B; font-weight: bold;"></p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a th:href="@{'/insured-users/' + ${user.id}}" class="button-customized-blue px-2 mx-2">Zpět na detail pojištěnce</a>
+                        <a href="/insured-users" class="button-customized px-2 mx-2">Zpět na správu pojištěnců</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+</html>
